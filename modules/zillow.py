@@ -60,7 +60,7 @@ class Zillow(object):
         '''
         from xml.etree import ElementTree
         root  = ElementTree.fromstring(response_xml)
-        self.last_zcode = root.find('message').find('code').text
+        self.last_zcode = int(root.find('message').find('code').text)
         self.last_zmessage = root.find('message').find('text').text
         if self.last_zcode > 0:
             return False
